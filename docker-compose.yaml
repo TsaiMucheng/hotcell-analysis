@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  jupyter:
+    image: jupyter/all-spark-notebook
+    container_name: spark
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/home/jovyan/
+    stdin_open: true
+    tty: true
+    restart: always
+    command: start.sh jupyter notebook --NotebookApp.token=''
